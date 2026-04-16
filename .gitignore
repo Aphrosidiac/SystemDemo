@@ -16,6 +16,13 @@ QUOTATION_*.pdf
 invoice logo.png
 stamp company.jpeg
 
-# Local DB dumps
-backend/*.json
+# Local DB dumps (the rebrand left these in backend root)
+backend/customers.json
+backend/debtors.json
+backend/invoices.json
+backend/payments.json
+backend/purchase.json
+backend/staff.json
+backend/stock.json
+backend/tyre.json
 backend/debtor_id.txt
