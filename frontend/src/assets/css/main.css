@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  /*
+   * SystemDemo — Light & Casual
+   *
+   * Variable names retained from the original dark theme so every Tailwind
+   * utility (bg-dark-950, text-gold-500, etc.) keeps working without
+   * touching components. Values are flipped:
+   *   - dark-950..dark-700 → near-white surfaces (bg / cards / borders)
+   *   - dark-600..dark-300 → mid greys (subtle text, dividers)
+   *   - dark-200..dark-50  → strong text colors
+   *   - gold-*             → friendly indigo accent (replaces yellow gold)
+   */
+
+  /* Accent (indigo) — kept name "gold" for compatibility */
+  --color-gold-50:  #eef2ff;
+  --color-gold-100: #e0e7ff;
+  --color-gold-200: #c7d2fe;
+  --color-gold-300: #a5b4fc;
+  --color-gold-400: #818cf8;
+  --color-gold-500: #6366f1;
+  --color-gold-600: #4f46e5;
+  --color-gold-700: #4338ca;
+  --color-gold-800: #3730a3;
+  --color-gold-900: #312e81;
+
+  /* Surfaces & text — kept name "dark" for compatibility (now light) */
+  --color-dark-950: #fafaf7;  /* page background (warm off-white) */
+  --color-dark-900: #ffffff;  /* card / panel surface */
+  --color-dark-800: #f5f5f1;  /* subtle surface / hover */
+  --color-dark-700: #e7e5df;  /* borders / dividers */
+  --color-dark-600: #d6d3cc;  /* strong borders */
+  --color-dark-500: #a8a29e;  /* muted icon */
+  --color-dark-400: #78716c;  /* secondary text */
+  --color-dark-300: #57534e;  /* body text muted */
+  --color-dark-200: #44403c;  /* body text */
+  --color-dark-100: #292524;  /* strong text */
+  --color-dark-50:  #1c1917;  /* headings */
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+}
+
+/* Base styles */
+body {
+  @apply bg-dark-950 text-dark-100 font-sans antialiased;
+  margin: 0;
+}
+
+/* Headings inherit darker color */
+h1, h2, h3, h4, h5, h6 {
+  color: theme(--color-dark-50);
+}
+
+/* Override `text-white` (used heavily in the old dark layouts) so it stays
+   readable on light backgrounds without per-component edits. */
+.text-white {
+  color: theme(--color-dark-50) !important;
+}
+
+/* Opacity variants of text-white used elsewhere in the app */
+.text-white\/80, .text-white\/70, .text-white\/60 {
+  color: theme(--color-dark-300) !important;
+}
+.text-white\/40 {
+  color: theme(--color-dark-500) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: theme(--color-dark-800);
+}
+::-webkit-scrollbar-thumb {
+  background: theme(--color-dark-600);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme(--color-dark-500);
+}
+
+/* Demo banner — small ribbon-style indicator that the build is a demo */
+.demo-ribbon {
+  position: fixed;
+  top: 14px;
+  right: -42px;
+  z-index: 60;
+  background: theme(--color-gold-500);
+  color: white;
+  font-family: theme(--font-heading);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  padding: 4px 50px;
+  transform: rotate(35deg);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  pointer-events: none;
+  user-select: none;
+}

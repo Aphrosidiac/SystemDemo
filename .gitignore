@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.env
+*.log
+.DS_Store
+Thumbs.db
+.wwebjs_auth/
+*.tmp
+
+# Original DreamGarage assets that came with the copy — not for the public demo repo
+AutoCount Reference/
+Brand Logo/
+brand exp/
+Dream Garage Pictures/
+QUOTATION_*.pdf
+invoice logo.png
+stamp company.jpeg
+
+# Local DB dumps
+backend/*.json
+backend/debtor_id.txt
